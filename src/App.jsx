@@ -5,7 +5,7 @@ import RecipeGenerator from './components/RecipeGenerator'
 
 function App() {
   return (
-    <div className='app-layout'>
+    <div>
       <Header />
       <RecipeGenerator />
     </div>

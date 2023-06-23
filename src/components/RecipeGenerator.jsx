@@ -3,8 +3,8 @@ import { useState } from "react";
 const RecipeGenerator = () => {
 
   const [recipe, setRecipe] = useState('')
-  const [calories, setCalories] = useState(0);
-  const [protein, setProtein] = useState(0);
+  const [calories, setCalories] = useState();
+  const [protein, setProtein] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -12,35 +12,46 @@ const RecipeGenerator = () => {
   }
   
   return (
-    <div className="recipeGenerator">
-      <h2>What are you craving today?</h2>
-
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter Recipe:
-          <input
-            type="text"
-            value={recipe}
-            onChange={(e) => setRecipe(e.target.value)} />
-        </label>
-        <label>
-          Enter Calorie Limit:
-          <input 
-            type="text"
-            value={calories}
-            onChange={(e) => setCalories(e.target.value)} />
-        </label>
-        <label>
-          Enter Protein Goal:
-          <input 
-            type="text"
-            value={protein}
-            onChange={(e) => setProtein(e.target.value)} />
-        </label>
-        <input type="submit" />
-      </form>
-
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="flex flex-col h-screen justify-center items-center">
+          <div className="py-5">
+            <label className="text-lg font-medium text-gray-100">
+              Enter Recipe:
+            </label>
+            <input
+                className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
+                type="text"
+                value={recipe}
+                placeholder="Cookies, Pizza?"
+                onChange={(e) => setRecipe(e.target.value)} />
+          </div>
+          <div className="py-5">
+          <label className="text-lg font-medium text-gray-100">
+              Calorie Limit:
+            </label>
+            <input
+                className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
+                type="text"
+                value={calories}
+                placeholder="Enter Calorie Limit"
+                onChange={(e) => setCalories(e.target.value)} />
+          </div>
+          <div className="py-5">
+          <label className="text-lg font-medium text-gray-100">
+              Protein Goal:
+            </label>
+            <input
+                className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
+                type="text"
+                value={protein}
+                placeholder="Enter Protein Goal"
+                onChange={(e) => setProtein(e.target.value)} />
+          </div>
+          <div className="py-5">
+            <input className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" />
+          </div>
+      </div>
+    </form>
   )
 }
 
