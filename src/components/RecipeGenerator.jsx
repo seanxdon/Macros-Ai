@@ -22,6 +22,7 @@ const RecipeGenerator = () => {
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
                 type="text"
                 value={recipe}
+                maxLength={30}
                 placeholder="Cookies, Pizza?"
                 onChange={(e) => setRecipe(e.target.value)} />
           </div>
@@ -33,6 +34,7 @@ const RecipeGenerator = () => {
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
                 type="text"
                 value={calories}
+                maxLength={4}
                 placeholder="Enter Calorie Limit"
                 onChange={(e) => setCalories(e.target.value)} />
           </div>
@@ -44,6 +46,7 @@ const RecipeGenerator = () => {
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
                 type="text"
                 value={protein}
+                maxLength={3}
                 placeholder="Enter Protein Goal"
                 onChange={(e) => setProtein(e.target.value)} />
           </div>
