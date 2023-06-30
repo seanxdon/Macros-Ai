@@ -16,19 +16,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/recipe', async (res, req) => {
+app.post('/recipe', async (req, res) => {
 
   const prompt = req.body.prompt;
 
   //change this create image method
-  const aiResponse = await openai.createImage({
-    prompt,
-    n: 1,
-    size: '1024x1024'
+  const aiResponse = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: prompt }],
   })
 
-  const image = aiResponse.data.data[0].url;
-  res.send({ image });
+  const aiRecipe = aiResponse.data.choices[0].message.content;
+  res.send({ aiRecipe });
 });
 
-app.listen(8080, () => console.log('Running on port https://localhost:8080'));
+app.listen(8080, () => console.log('Running on port https://localhost:8080/recipe'));
