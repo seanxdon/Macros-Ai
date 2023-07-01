@@ -6,7 +6,7 @@ const RecipeGenerator = () => {
   const [calories, setCalories] = useState();
   const [protein, setProtein] = useState();
   const formEl = useRef(null);
-  const resultEl = useRef(null);
+  const resultEl = useRef('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +23,7 @@ const RecipeGenerator = () => {
     });
 
     const recipe = await response.json();
-    // resultEl.innerHTML = `<p>${recipe.aiRecipe}</p>`
-    console.log(recipe.aiRecipe)
+    resultEl.current.innerHTML = `<p>${recipe.aiRecipe}</p>`
   }
   
   return (
