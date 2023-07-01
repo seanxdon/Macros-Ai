@@ -3,10 +3,10 @@ import { useRef, useState } from "react";
 const RecipeGenerator = () => {
 
   const [recipe, setRecipe] = useState('')
-  const [calories, setCalories] = useState();
-  const [protein, setProtein] = useState();
+  const [calories, setCalories] = useState('');
+  const [protein, setProtein] = useState('');
   const formEl = useRef(null);
-  const resultEl = useRef('');
+  const resultEl = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ const RecipeGenerator = () => {
                 name="recipe"
                 value={recipe}
                 maxLength={100}
-                placeholder="Cookies, Pizza?"
+                placeholder="What are you craving today?"
                 onChange={(e) => setRecipe(e.target.value)} />
           </div>
           <div className="py-5">
