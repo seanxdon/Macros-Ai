@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.post('/recipe', async (req, res) => {
 
-  const prompt = req.body.prompt;
+  const prompt = req.body.prompt
 
   //change this create image method
   const aiResponse = await openai.createChatCompletion({

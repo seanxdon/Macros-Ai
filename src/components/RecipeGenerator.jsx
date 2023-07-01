@@ -18,12 +18,15 @@ const RecipeGenerator = () => {
         'Content-Type' : 'application/json',
       },
       body: JSON.stringify({
-        prompt: data.get('prompt'),
+        recipe: data.get('recipe'),
+        calories: data.get('calories'),
+        protein: data.get('protein'),
+        prompt: `Create me a ${recipe} recipe under ${calories} calories with ${protein} grams of protein. Only give me the macro nutirents for each ingredient`,
       }),
     });
 
-    const recipe = await response.json();
-    resultEl.current.innerHTML = `<p>${recipe.aiRecipe}</p>`
+    const output = await response.json();
+    resultEl.current.innerHTML = `<p>${output.aiRecipe}</p>`
   }
   
   return (
@@ -36,7 +39,7 @@ const RecipeGenerator = () => {
             <input
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
                 type="text"
-                name="prompt"
+                name="recipe"
                 value={recipe}
                 maxLength={100}
                 placeholder="Cookies, Pizza?"
@@ -49,6 +52,7 @@ const RecipeGenerator = () => {
             <input
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
                 type="text"
+                name="calories"
                 value={calories}
                 maxLength={4}
                 placeholder="Enter Calorie Limit"
@@ -61,6 +65,7 @@ const RecipeGenerator = () => {
             <input
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
                 type="text"
+                name="protein"
                 value={protein}
                 maxLength={3}
                 placeholder="Enter Protein Goal"
