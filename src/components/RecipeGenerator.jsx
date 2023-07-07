@@ -51,10 +51,10 @@ const RecipeGenerator = () => {
             </label>
             <input
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
-                type="text"
+                type="number"
                 name="calories"
                 value={calories}
-                maxLength={4}
+                max={9999}
                 placeholder="Enter Calorie Limit"
                 onChange={(e) => setCalories(e.target.value)} />
           </div>
@@ -64,10 +64,10 @@ const RecipeGenerator = () => {
             </label>
             <input
                 className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
-                type="text"
+                type="number"
                 name="protein"
                 value={protein}
-                maxLength={3}
+                max={999}
                 placeholder="Enter Protein Goal"
                 onChange={(e) => setProtein(e.target.value)} />
           </div>
