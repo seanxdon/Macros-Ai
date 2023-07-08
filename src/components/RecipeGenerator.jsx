@@ -5,12 +5,14 @@ const RecipeGenerator = () => {
   const [recipe, setRecipe] = useState('')
   const [calories, setCalories] = useState('');
   const [protein, setProtein] = useState('');
-  const formEl = useRef(null);
-  const resultEl = useRef(null);
+  const formElement = useRef(null);
+  const resultElement = useRef(null);
+  const submitButton = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData(formEl.current);
+    showSpinner();
+    const data = new FormData(formElement.current);
 
     const response = await fetch('http://localhost:8080/recipe', {
       method: 'POST',
@@ -25,12 +27,18 @@ const RecipeGenerator = () => {
       }),
     });
 
+    function showSpinner() {
+      submitButton.disabled = true;
+      submitButton.innerHTML = `Creating Recipe... <span></span>`
+    }
+
+
     const output = await response.json();
-    resultEl.current.innerHTML = `<p>${output.aiRecipe}</p>`
+    resultElement.current.innerHTML = `<p>${output.aiRecipe}</p>`
   }
   
   return (
-    <form ref={formEl} onSubmit={handleSubmit}>
+    <form ref={formElement} onSubmit={handleSubmit}>
       <div className="flex flex-col h-screen justify-center items-center">
           <div className="py-5">
             <label className="text-lg font-medium text-gray-100">
@@ -72,9 +80,9 @@ const RecipeGenerator = () => {
                 onChange={(e) => setProtein(e.target.value)} />
           </div>
           <div className="py-5">
-            <input className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" />
+            <input ref={submitButton} className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" />
           </div>
-          <p ref={resultEl} className="text-white" id="result">Result will show up here</p>
+          <p ref={resultElement} className="text-white" id="result">Result will show up here</p>
       </div>
     </form>
   )
