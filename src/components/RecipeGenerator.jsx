@@ -1,14 +1,18 @@
 import { useRef, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 const RecipeGenerator = () => {
 
-  const [recipe, setRecipe] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [recipe, setRecipe] = useState('');
   const [calories, setCalories] = useState('');
   const [protein, setProtein] = useState('');
   const formEl = useRef(null);
   const resultEl = useRef(null);
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const data = new FormData(formEl.current);
 
@@ -26,6 +30,8 @@ const RecipeGenerator = () => {
     });
 
     const output = await response.json();
+    console.log("req sent");
+    setIsLoading(false);
     resultEl.current.innerHTML = `<p>${output.aiRecipe}</p>`
   }
   
@@ -72,9 +78,11 @@ const RecipeGenerator = () => {
                 onChange={(e) => setProtein(e.target.value)} />
           </div>
           <div className="py-5">
-            <input className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" />
+            <button className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" disabled={isLoading}>
+              {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
+            </button>
+            <p ref={resultEl} className="text-white" id="result">Result will show up here</p>
           </div>
-          <p ref={resultEl} className="text-white" id="result">Result will show up here</p>
       </div>
     </form>
   )
