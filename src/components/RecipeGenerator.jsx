@@ -1,17 +1,18 @@
 import { useRef, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
-import RecipeResult from "./RecipeResult";
+import RecipeResultModal from "./RecipeResultModal";
 
 const RecipeGenerator = () => {
 
+  const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [recipeResult, setRecipeResult] = useState('');
 
   const [recipe, setRecipe] = useState('');
   const [calories, setCalories] = useState('');
   const [protein, setProtein] = useState('');
   const formEl = useRef(null);
-  const resultEl = useRef(null);
 
   const handleSubmit = async (e) => {
     setIsLoading(true);
@@ -35,9 +36,9 @@ const RecipeGenerator = () => {
     });
 
     const output = await response.json();
-    console.log("req sent");
+    setRecipeResult(output.aiRecipe);
     setIsLoading(false);
-    resultEl.current.innerHTML = `<p>${output.aiRecipe}</p>`
+    setShowModal(true);
   }
   
   return (
@@ -87,8 +88,8 @@ const RecipeGenerator = () => {
               {errorMessage && <div className="error">{errorMessage}</div>}
               {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
             </button>
-            <p ref={resultEl} className="text-white" id="result">Result will show up here</p>
           </div>
+        <RecipeResultModal recipeResult={recipeResult}/>
       </div>
     </form>
   )
