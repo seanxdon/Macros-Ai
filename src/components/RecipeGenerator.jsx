@@ -31,7 +31,7 @@ const RecipeGenerator = () => {
       }),
     }).catch(() => {
       setIsLoading(false);  
-      setErrorMessage("Unable to fetch recipe");
+      setErrorMessage("Unable to");
     });
 
     const output = await response.json();
@@ -84,8 +84,8 @@ const RecipeGenerator = () => {
           </div>
           <div className="py-5">
             <button className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" disabled={isLoading}>
-              {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
               {errorMessage && <div className="error">{errorMessage}</div>}
+              {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
             </button>
             <p ref={resultEl} className="text-white" id="result">Result will show up here</p>
           </div>
