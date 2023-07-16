@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
+import RecipeResult from "./RecipeResult";
 
 const RecipeGenerator = () => {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const [recipe, setRecipe] = useState('');
   const [calories, setCalories] = useState('');
@@ -27,6 +29,9 @@ const RecipeGenerator = () => {
         protein: data.get('protein'),
         prompt: `Create me a ${recipe} recipe under ${calories} calories with ${protein} grams of protein. Only give me the macro nutirents for each ingredient`,
       }),
+    }).catch(() => {
+      setIsLoading(false);  
+      setErrorMessage("Unable to fetch recipe");
     });
 
     const output = await response.json();
@@ -80,6 +85,7 @@ const RecipeGenerator = () => {
           <div className="py-5">
             <button className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" disabled={isLoading}>
               {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
+              {errorMessage && <div className="error">{errorMessage}</div>}
             </button>
             <p ref={resultEl} className="text-white" id="result">Result will show up here</p>
           </div>
