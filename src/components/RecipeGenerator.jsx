@@ -89,7 +89,7 @@ const RecipeGenerator = () => {
               {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
             </button>
           </div>
-        <RecipeResultModal recipeResult={recipeResult}/>
+          {showModal ? (<RecipeResultModal recipeResult={recipeResult}/>) : null}
       </div>
     </form>
   )
