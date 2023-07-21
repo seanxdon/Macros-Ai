@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import "../styles/recipe-result-backdrop.css"
 const RecipeResultBackdrop = (props) => {
  
   return (

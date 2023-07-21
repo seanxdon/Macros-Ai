@@ -29,7 +29,7 @@ const RecipeResultModal = (props) => {
     <RecipeResultBackdrop onClick={props.handleClose}>
       <motion.div
             onClick={(e) => e.stopPropagation()}  
-            className="modal orange-gradient"
+            className="modal"
             variants={dropIn}
             initial="hidden"
             animate="visible"
@@ -38,9 +38,6 @@ const RecipeResultModal = (props) => {
           <p>{recipeResult}</p>
           <button onClick={props.handleClose}>Close</button>
       </motion.div>
-      {/* <div className="recipe-result-modal px-5">
-        <p className="recipe-result">{recipeResult}</p>
-      </div> */}
     </RecipeResultBackdrop>
   )
 }
