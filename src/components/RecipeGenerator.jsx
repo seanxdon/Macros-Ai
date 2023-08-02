@@ -14,6 +14,9 @@ const RecipeGenerator = () => {
   const [protein, setProtein] = useState('');
   const formEl = useRef(null);
 
+  const close = () => setShowModal(false);
+  const open = () => setShowModal(true);
+
   const handleSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
@@ -89,7 +92,7 @@ const RecipeGenerator = () => {
               {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
             </button>
           </div>
-        <RecipeResultModal recipeResult={recipeResult}/>
+          {showModal ? (<RecipeResultModal handleClose={close} recipeResult={recipeResult}/>) : null}
       </div>
     </form>
   )
