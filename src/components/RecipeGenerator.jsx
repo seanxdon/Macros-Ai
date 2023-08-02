@@ -8,6 +8,7 @@ const RecipeGenerator = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [recipeResult, setRecipeResult] = useState('');
+  const [disabled, setDisabled] = useState(false);
 
   const [recipe, setRecipe] = useState('');
   const [calories, setCalories] = useState('');
@@ -19,6 +20,7 @@ const RecipeGenerator = () => {
 
   const handleSubmit = async (e) => {
     setIsLoading(true);
+    setDisabled(!disabled);
     e.preventDefault();
     const data = new FormData(formEl.current);
 
@@ -57,6 +59,7 @@ const RecipeGenerator = () => {
                 name="recipe"
                 value={recipe}
                 maxLength={100}
+                disabled={disabled}
                 placeholder="What are you craving today?"
                 onChange={(e) => setRecipe(e.target.value)} />
           </div>
@@ -70,6 +73,7 @@ const RecipeGenerator = () => {
                 name="calories"
                 value={calories}
                 max={9999}
+                disabled={disabled}
                 placeholder="Enter Calorie Limit"
                 onChange={(e) => setCalories(e.target.value)} />
           </div>
@@ -83,6 +87,7 @@ const RecipeGenerator = () => {
                 name="protein"
                 value={protein}
                 max={999}
+                disabled={disabled}
                 placeholder="Enter Protein Goal"
                 onChange={(e) => setProtein(e.target.value)} />
           </div>
