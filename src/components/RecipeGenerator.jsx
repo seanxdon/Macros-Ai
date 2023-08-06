@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import "../styles/RecipeGenerator.css"
 import LoadingSpinner from "./LoadingSpinner";
 import RecipeResultModal from "./RecipeResultModal";
 
@@ -47,6 +48,7 @@ const RecipeGenerator = () => {
   }
   
   return (
+    <div className="recipe-form">
     <form ref={formEl} onSubmit={handleSubmit}>
       <div className="flex flex-col h-screen justify-center items-center">
           <div className="py-5">
@@ -100,6 +102,7 @@ const RecipeGenerator = () => {
           {showModal ? (<RecipeResultModal handleClose={close} recipeResult={recipeResult}/>) : null}
       </div>
     </form>
+  </div>
   )
 }
 

@@ -1,0 +1,6 @@
+.side-navigation-container {
+  display: flex;
+  justify-content: space-between;
+  justify-self: flex-start;
+  flex-direction: column;
+}
