@@ -1,5 +1,6 @@
 # Macros-Ai
 Live Demo: https://macros-ai-lyart.vercel.app/
+
 Tech Stack: React | Node | Tailwind
 API: Open AI
 
