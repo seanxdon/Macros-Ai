@@ -2,9 +2,11 @@
 Live Demo: https://macros-ai-lyart.vercel.app/
 
 Tech Stack: React | Node | Tailwind
+
 API: Open AI
 
-Recipe Generator to fit your macro goals! 
+
+<b>Recipe Generator to fit your macro goals! <b>
 
 1. Enter the desired food you have been craving
 2. Enter calorie limit
