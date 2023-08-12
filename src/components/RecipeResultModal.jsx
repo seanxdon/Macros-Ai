@@ -29,7 +29,7 @@ const RecipeResultModal = (props) => {
     <RecipeResultBackdrop onClick={props.handleClose}>
       <motion.div
             onClick={(e) => e.stopPropagation()}  
-            className="modal"
+            className="modal max-h-fit justify-center"
             variants={dropIn}
             initial="hidden"
             animate="visible"
