@@ -17,7 +17,6 @@ const RecipeGenerator = () => {
   const formEl = useRef(null);
 
   const close = () => setShowModal(false);
-  const open = () => setShowModal(true);
 
   const handleSubmit = async (e) => {
     setIsLoading(true);
@@ -56,7 +55,7 @@ const RecipeGenerator = () => {
               Enter Recipe:
             </label>
             <input
-                className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
+                className="w-full rounded-md py-2 pl-1 text-gray-900 placeholder:text-gray-900"
                 type="text"
                 name="recipe"
                 value={recipe}
@@ -70,7 +69,7 @@ const RecipeGenerator = () => {
               Calorie Limit:
             </label>
             <input
-                className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
+                className="w-full rounded-md py-2 pl-1 text-gray-900 placeholder:text-gray-900"
                 type="number"
                 name="calories"
                 value={calories}
@@ -84,7 +83,7 @@ const RecipeGenerator = () => {
               Protein Goal:
             </label>
             <input
-                className="w-full rounded-md py-2 pl-1 text-gray-100 placeholder:text-gray-100"
+                className="w-full rounded-md py-2 pl-1 text-gray-900 placeholder:text-gray-900"
                 type="number"
                 name="protein"
                 value={protein}
@@ -94,7 +93,7 @@ const RecipeGenerator = () => {
                 onChange={(e) => setProtein(e.target.value)} />
           </div>
           <div className="py-5">
-            <button className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" disabled={isLoading}>
+            <button className="rounded-md bg-yellow-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600" type="submit" disabled={isLoading}>
               {errorMessage && <div className="error">{errorMessage}</div>}
               {isLoading ? <LoadingSpinner/> : "Generate Recipe"}
             </button>
