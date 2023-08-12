@@ -3,7 +3,7 @@ Live Demo: https://macros-ai-lyart.vercel.app/
 
 Tech Stack: React | Node | Tailwind
 
-API: Open AI
+API: gpt-3.5-turbo 
 
 
 <b>Recipe Generator to fit your macro goals! <b>
