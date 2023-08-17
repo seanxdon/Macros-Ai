@@ -17,11 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
-
-app.post('/api', async (req, res) => {
+app.post('/recipe', async (req, res) => {
 
   const prompt = req.body.prompt
 
@@ -35,5 +31,4 @@ app.post('/api', async (req, res) => {
   res.send({ aiRecipe });
 });
 
-app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/api/`));
-module.exports = app;
+app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/recipe`));
