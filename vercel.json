@@ -1,4 +1,5 @@
 {
+  "buildCommand": "vite build",
   "version": 2,
   "builds": [
     {
