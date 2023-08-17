@@ -1,5 +1,5 @@
 {
-  "buildCommand": "vite build",
+  "buildCommand": "npm run dev",
   "version": 2,
   "builds": [
     {
