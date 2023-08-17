@@ -17,7 +17,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳')
+})
+
+app.post('/api', async (req, res) => {
 
   const prompt = req.body.prompt
 
