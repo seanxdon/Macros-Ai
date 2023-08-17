@@ -35,5 +35,5 @@ app.post('/api', async (req, res) => {
   res.send({ aiRecipe });
 });
 
-app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/`));
+app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/api/`));
 module.exports = app;
