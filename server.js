@@ -9,7 +9,6 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 const PORT = 4000
-
 import express from 'express';
 import cors from 'cors';
 
