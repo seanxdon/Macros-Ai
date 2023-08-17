@@ -8,6 +8,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
+const PORT = 4000
 
 import express from 'express';
 import cors from 'cors';
@@ -30,4 +31,5 @@ app.post('/recipe', async (req, res) => {
   res.send({ aiRecipe });
 });
 
-app.listen(8080, () => console.log('Running on port https://localhost:8080/recipe'));
+app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/recipe`));
+module.exports = app
