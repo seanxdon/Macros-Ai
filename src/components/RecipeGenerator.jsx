@@ -24,7 +24,7 @@ const RecipeGenerator = () => {
     e.preventDefault();
     const data = new FormData(formEl.current);
 
-    const response = await fetch('http://localhost:8080/recipe', {
+    const response = await fetch('http://localhost:4000/recipe', {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
