@@ -38,10 +38,11 @@ const RecipeGenerator = () => {
     }).catch(() => {
       setIsLoading(false);  
       setErrorMessage("Unable to");
-      console.log("Unable to send request")
+      console.log("Request Failed");
     });
 
     const output = await response.json();
+    console.log("Request Successful");
     setRecipeResult(output.aiRecipe);
     setIsLoading(false);
     setShowModal(true);
