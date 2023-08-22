@@ -46,6 +46,8 @@ const RecipeGenerator = () => {
     setRecipeResult(output.aiRecipe);
     setIsLoading(false);
     setShowModal(true);
+
+    // Add reset form button
   }
   
   return (
