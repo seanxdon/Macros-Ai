@@ -38,6 +38,7 @@ const RecipeGenerator = () => {
     }).catch(() => {
       setIsLoading(false);  
       setErrorMessage("Unable to");
+      console.log("Unable to send request")
     });
 
     const output = await response.json();
