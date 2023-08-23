@@ -21,7 +21,6 @@ app.post('/recipe', async (req, res) => {
 
   const prompt = req.body.prompt
 
-  //change this create image method
   const aiResponse = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: prompt }],

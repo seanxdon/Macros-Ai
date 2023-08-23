@@ -47,7 +47,6 @@ const RecipeGenerator = () => {
     setIsLoading(false);
     setShowModal(true);
 
-    // Add reset form button
   }
   
   return (
