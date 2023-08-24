@@ -33,4 +33,4 @@ app.post('/recipe', async (req, res) => {
 app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/recipe`));
 
 
-module.exports = app;
+export default app;
