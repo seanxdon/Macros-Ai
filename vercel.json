@@ -6,6 +6,9 @@
       "use": "@now/node"
     }
   ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "routes": [
     {
       "src": "/(.*)",
