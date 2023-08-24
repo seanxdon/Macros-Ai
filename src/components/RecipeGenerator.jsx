@@ -24,7 +24,7 @@ const RecipeGenerator = () => {
     e.preventDefault();
     const data = new FormData(formEl.current);
 
-    const response = await fetch('https://macros-ai-seanxdon.onrender.com/recipe', {
+    const response = await fetch('https://macros-ai-seanxdon.onrender.com/', {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
