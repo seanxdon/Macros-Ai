@@ -1,6 +1,8 @@
 # Macros-Ai
 Live Demo: https://macros-ai-one.vercel.app/
 
+*In Development*
+
 Tech Stack: React | Node | Tailwind
 
 API: gpt-3.5-turbo 
