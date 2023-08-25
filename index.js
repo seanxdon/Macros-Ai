@@ -8,7 +8,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const PORT = 3000
+const PORT = 4000
 
 import express from 'express';
 import cors from 'cors';
@@ -17,7 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.post('https://macros-ai-seanxdon.onrender.com/recipe', async (req, res) => {
 
   const prompt = req.body.prompt
 
@@ -30,6 +30,6 @@ app.post('/', async (req, res) => {
   res.send({ aiRecipe });
 });
 
-app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/`));
+app.listen(PORT, () => console.log(`Running on port https://localhost:${PORT}/recipe`));
 
 // export default app;
