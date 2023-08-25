@@ -24,7 +24,7 @@ const RecipeGenerator = () => {
     e.preventDefault();
     const data = new FormData(formEl.current);
 
-    const response = await fetch('http://localhost:4000/recipe', {
+    const response = await fetch('https://macros-api-uc2c.onrender.com/api', {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
